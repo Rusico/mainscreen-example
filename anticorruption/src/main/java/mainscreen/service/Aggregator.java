@@ -11,6 +11,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Агрегатор-сутенёр) - сводит секции и необходимых для них поставщиков
+ */
 @Component
 public class Aggregator {
     private final Set<Provider> providers;

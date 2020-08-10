@@ -23,6 +23,11 @@ public class ProviderConsumer<InputData, OutputData> {
     @Setter
     private OutputData outputData;
 
+    /**
+     * Метод проверяет ассоциированность потребителя и поставщика
+     * @param provider поставщик
+     * @return true - если потребитель ассоциирован с поставщиком
+     */
     public boolean isProviderConsumer(Provider<?,?> provider) {
         return Optional.ofNullable(provider)
                 .map(pr -> pr.getClass() == providerClass)
