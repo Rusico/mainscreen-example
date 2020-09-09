@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>infrastructure</artifactId>
+
     <build>
         <plugins>
             <plugin>
@@ -23,13 +24,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>mainscreen.sbrf</groupId>
-            <artifactId>anticorruption</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 
 </project>

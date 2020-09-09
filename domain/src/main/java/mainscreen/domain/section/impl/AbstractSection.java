@@ -1,26 +1,23 @@
 package mainscreen.domain.section.impl;
 
-import lombok.Getter;
+import mainscreen.domain.Data;
+import mainscreen.domain.provider.Provider;
 import mainscreen.domain.provider.ProviderConsumer;
 import mainscreen.domain.section.Section;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
-@Getter
-public abstract class AbstractSection<ResultData> implements Section<ResultData>, Comparator<AbstractSection> {
-    private final Set<ProviderConsumer<?,?>> consumers;
-    protected final Integer order;
-
-    protected AbstractSection(Integer order, ProviderConsumer<?, ?>... consumers) {
-        this.order = order;
-        this.consumers = new HashSet<>(Arrays.asList(consumers));
-    }
+public abstract class AbstractSection<T> implements Section<T> {
 
     @Override
-    public int compare(AbstractSection o1, AbstractSection o2) {
-        return o1.order.compareTo(o2.order);
+    public Data<T> result(Set<ProviderConsumer> consumers) {
+        return Data.<T>builder()
+                .data(result(consumers.stream()
+                        .collect(Collectors.toMap(ProviderConsumer::getProviderClass, ProviderConsumer::getOutputData))))
+                .build();
     }
+
+    protected abstract T result(Map<Class<? extends Provider>, Data<?>> outputData);
 }

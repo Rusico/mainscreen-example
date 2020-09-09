@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>mainscreen.sbrf</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>infrastructure</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

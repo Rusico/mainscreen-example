@@ -8,6 +8,5 @@ import java.lang.annotation.Inherited;
 
 @Inherited
 @Component
-@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public @interface ProviderBean {
 }
